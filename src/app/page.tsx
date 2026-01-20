@@ -84,8 +84,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Black Box Concept Section (Dark Glass to show Video) */}
-        <section className="w-full bg-black/60 text-white py-24 md:py-32 px-6 flex justify-center items-center relative overflow-hidden backdrop-blur-sm">
+        {/* Black Box Concept Section (Transparent to show pure video) */}
+        <section className="w-full text-white py-24 md:py-32 px-6 flex justify-center items-center relative overflow-hidden">
           {/* Abstract Background Element */}
           <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-900/10 to-transparent opacity-50 pointer-events-none" />
 
@@ -97,9 +97,9 @@ export default function Home() {
             <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/50 to-transparent mx-auto" />
 
             <p className="font-serif text-lg md:text-2xl leading-loose tracking-wide text-neutral-200">
-              Manus Gallery は<br className="md:hidden" />「 誰でも・いつでも・無料で 」<br />
+              Manus Gallery は<br className="md:hidden" />「 誰でも・いつでも・どこでも 」<br />
               <br />
-              唯一のオンライン美術館です。
+              皆さんの想い・情熱を形にする場所です。
             </p>
           </div>
         </section>
@@ -135,9 +135,20 @@ export default function Home() {
                 <p className="text-white font-medium text-xl md:text-2xl mb-6 tracking-wide">
                   是非とも、このManus Galleryを通じて、
                 </p>
-                <p className="text-white font-bold text-xl md:text-3xl tracking-widest drop-shadow-lg">
+                <p className="text-white font-bold text-xl md:text-3xl tracking-widest drop-shadow-lg mb-10">
                   クリエイティブな人生を謳歌しましょう。
                 </p>
+
+                <a
+                  href="https://forms.gle/c332sS3ps9urUwTp8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block border border-white/30 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-serif tracking-widest px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:border-white/50 group"
+                >
+                  <span className="border-b border-transparent group-hover:border-white/50 pb-0.5 transition-all">
+                    発想を世界に伝える
+                  </span>
+                </a>
               </div>
             </div>
           </div>
