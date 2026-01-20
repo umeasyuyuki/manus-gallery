@@ -109,8 +109,8 @@ export default function Home() {
                 <p className="text-foreground font-medium text-xl md:text-2xl mb-4">
                   是非とも、このManus Galleryを通じて、
                 </p>
-                <p className="text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 drop-shadow-sm">
-                  クリエイティブな人生を共に謳歌しましょう。
+                <p className="text-foreground font-medium text-xl md:text-2xl mb-4">
+                  クリエイティブな人生を謳歌しましょう。
                 </p>
               </div>
             </div>
