@@ -9,7 +9,14 @@ interface GalleryControlsProps {
     setSelectedCategory: (category: ProjectCategory | "All") => void;
 }
 
-const CATEGORIES: (ProjectCategory | "All")[] = ["All", "Tool", "Art", "Game", "Utility"];
+const CATEGORIES: (ProjectCategory | "All")[] = [
+    "All",
+    "Apps & Tools",
+    "Creative",
+    "Data & Analysis",
+    "Documents",
+    "Others"
+];
 
 export function GalleryControls({
     searchQuery,
@@ -51,8 +58,8 @@ export function GalleryControls({
                         key={category}
                         onClick={() => setSelectedCategory(category)}
                         className={`text-sm tracking-wider uppercase transition-colors ${selectedCategory === category
-                                ? "text-foreground font-bold border-b border-foreground"
-                                : "text-muted hover:text-foreground"
+                            ? "text-foreground font-bold border-b border-foreground"
+                            : "text-muted hover:text-foreground"
                             }`}
                     >
                         {category}

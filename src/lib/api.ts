@@ -38,23 +38,28 @@ export async function fetchProjects(): Promise<Project[]> {
         return PROJECTS;
     }
 
+    console.log("[API] Fetching projects from:", GAS_API_URL);
+
     try {
         const response = await fetch(GAS_API_URL, {
             method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            // Revalidate every hour (ISR-like behavior for client-side)
-            next: { revalidate: 3600 }
+            cache: "no-store",
+            // Revalidate every request
+            next: { revalidate: 0 }
         });
 
+        console.log("[API] Response status:", response.status);
+
         if (!response.ok) {
+            console.error("[API] HTTP error:", response.status, response.statusText);
             throw new Error(`Failed to fetch projects: ${response.status} ${response.statusText}`);
         }
 
         const data: GasResponse = await response.json();
+        console.log("[API] Data received:", data);
 
         if (!data.success) {
+            console.error("[API] API returned success: false", data.error);
             throw new Error(data.error || "Unknown API error");
         }
 

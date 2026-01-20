@@ -77,7 +77,31 @@ export default function Home() {
             Manus Gallery
           </h2>
           <p className="font-serif text-lg md:text-2xl max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-150 text-neutral-100 drop-shadow-md leading-relaxed">
-            偶然と必然が交差する、<br className="md:hidden" />AI作品のアーカイブ。
+            偶然と必然が交差する、<br className="md:hidden" />発想と情熱の美術館。
+          </p>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="px-6 max-w-4xl mx-auto mb-20 text-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
+        <div className="space-y-8 font-serif text-lg md:text-xl leading-relaxed text-muted-foreground">
+          <p>
+            近年、AIの力は凄まじい勢いで成長し、日々目まぐるしく新しい技術が現れています。<br />
+            これは他でもない、「誰もがクリエイターとなり、想い・情熱を形にできる革命」なのです。
+          </p>
+          <p>
+            とても自分の中で魅力的だと思うものができたけど、知らせる場所がない…<br />
+            Manusを使ったら何ができるのかわからない…
+          </p>
+          <p>
+            そんな悩みを解決し、誰もがクリエイターになれることを願ってこの場所を生み出しました。
+          </p>
+          <p>
+            我々は皆さんのアイデア・情熱を心から歓迎します。
+          </p>
+          <p className="text-foreground font-medium text-xl md:text-2xl pt-4">
+            是非とも、このManus Galleryを通じて、<br />
+            クリエイティブな人生を共に謳歌しましょう。
           </p>
         </div>
       </section>
