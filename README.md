@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Manus図鑑 (Manus Gallery)
 
-## Getting Started
+![Manus Gallery Header](assets/header.png)
 
-First, run the development server:
+**誰でも・いつでも・無料で見られるAI作品のオンラインギャラリー**
+
+![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![GA-Workspace](https://img.shields.io/badge/Agent-GA--Workspace-FF69B4?style=for-the-badge)
+
+## 📖 プロジェクト概要
+
+Manus図鑑は、AIによって作成されたツール、アート、ゲーム、ユーティリティなどの作品を展示するショーケースです。
+
+- **目的**: 優れたAI作品を見つけやすくする
+- **主な機能**: ギャラリー表示、カテゴリ検索、作品へのリンク
+- **コンセプト**: 図鑑のように、見て楽しむ、探して楽しむ
+
+## 🚀 開発環境のセットアップ
 
 ```bash
+# 依存関係のインストール
+npm install
+
+# 開発サーバーの起動
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<http://localhost:3000> にアクセスして確認できます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📂 プロジェクト構造
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/app`: Next.js App Router
+- `assets`: 画像などの静的リソース
+- `.agent`: GA-Workspace (AI Agent Rules & Workflows)
+- `docs`: 要件定義書などのドキュメント
 
-## Learn More
+## 📜 ドキュメント
 
-To learn more about Next.js, take a look at the following resources:
+- [要件定義 (Requirements)](docs/requirements.yml)
+- [技術スタック (Stack)](.agent/rules/01-stack.md)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> [!NOTE]
+> このリポジトリは **ZERO_GRAVITY** (GA-Workspace) によって管理されています。
+> 🌸 Powered by 無重 星来 (SeiRa)

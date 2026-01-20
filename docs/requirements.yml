@@ -1,0 +1,159 @@
+product:
+  id: manus-zukan
+  name: "Manus図鑑"
+  type: "gallery-website"
+  concept_keywords:
+    - "図鑑"
+    - "オンラインギャラリー"
+    - "AI作品ショーケース"
+    - "誰でも・いつでも・無料"
+
+scope:
+  mvp_includes:
+    - gallery_grid_page
+    - category_filter_single_select
+    - keyword_search_live
+    - outbound_links_project_and_creator
+    - submit_button_to_google_form
+    - responsive_design
+    - baseline_accessibility
+  out_of_scope_initial:
+    - login_accounts
+    - comments
+    - likes_votes
+    - internal_submission_form
+    - project_detail_pages
+
+users:
+  roles:
+    - id: visitor
+      goals:
+        - "作品を探す"
+        - "作品を体験する（外部リンク）"
+        - "投稿者をフォローする（X）"
+    - id: creator
+      goals:
+        - "作品を投稿する（Google Form）"
+    - id: admin
+      goals:
+        - "投稿を審査し、承認済みを公開データに反映する"
+
+pages:
+  - id: home_gallery
+    route: "/"
+    layout:
+      header:
+        sticky: true
+        left: ["site_title"]
+        right: ["submit_button"]
+      hero:
+        enabled: optional
+        max_height: "small"
+      controls:
+        - id: category_filter
+          type: "single_select"
+          options: ["all", "tool", "art", "game", "utility"]
+        - id: search_box
+          type: "text_input"
+          live_filter: true
+      content:
+        - id: gallery_grid
+          type: "card_grid"
+          responsive_columns:
+            mobile: 1
+            tablet: 2
+            desktop: "3-4"
+      footer:
+        items: ["copyright", "contact_optional", "submit_button_optional"]
+
+workflows:
+  - id: browse_discover
+    actor: visitor
+    steps:
+      - "Open home_gallery"
+      - "Optionally select category"
+      - "Optionally type keyword in search"
+      - "Open project_url in new tab"
+      - "Open creator_x_url in new tab"
+      - "Optionally share (future)"
+  - id: submit_project
+    actor: creator
+    steps:
+      - "Click submit_button"
+      - "Open google_form_url in new tab"
+      - "Fill fields and submit"
+      - "See confirmation message: review required"
+  - id: moderation_publish
+    actor: admin
+    steps:
+      - "Collect submissions in Google Sheet"
+      - "AI-assisted filter flags spam/nsfw/malicious"
+      - "Admin approves/rejects"
+      - "Approved records are added to projects.json"
+      - "Redeploy site"
+
+data_models:
+  - name: Project
+    primary_key: id
+    required_fields:
+      - id
+      - title
+      - description_short
+      - category
+      - thumbnail_url
+      - project_url
+      - creator_name
+      - creator_x_url
+      - status
+    optional_fields:
+      - published_at
+      - tags
+      - language
+      - slug
+    field_constraints:
+      category_enum: ["tool", "art", "game", "utility"]
+      status_enum: ["approved"]
+      urls_must_be_https: true
+
+ui_requirements:
+  card:
+    must_show:
+      - thumbnail
+      - title
+      - description_short
+      - action_project_link
+      - action_creator_x_link
+    optional:
+      - share_button
+  external_links:
+    new_tab: true
+    rel: "noopener noreferrer"
+
+non_functional:
+  performance:
+    filter_response_target_ms: 200
+    image_optimization: true
+    lazy_load_images: recommended
+  accessibility:
+    target: "WCAG 2.1 AA (goal)"
+    keyboard_navigation: required
+    visible_focus: required
+    alt_text_required: true
+  responsive:
+    mobile_first: true
+  security:
+    sanitize_text: true
+    outbound_link_safety: required
+  seo:
+    basic_meta: required
+    og_meta: recommended
+
+tech_recommendations:
+  frontend:
+    preferred: ["Next.js (static)", "React"]
+    alternatives: ["Astro", "Nuxt", "Eleventy + JS"]
+  styling:
+    preferred: ["Tailwind CSS"]
+    alternatives: ["CSS Modules", "Chakra UI"]
+  hosting:
+    preferred: ["Vercel", "Netlify", "GitHub Pages"]
