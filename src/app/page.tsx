@@ -84,25 +84,37 @@ export default function Home() {
 
       {/* About Section */}
       <section className="px-6 max-w-4xl mx-auto mb-20 text-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
-        <div className="space-y-8 font-serif text-lg md:text-xl leading-relaxed text-muted-foreground">
-          <p>
-            近年、AIの力は凄まじい勢いで成長し、日々目まぐるしく新しい技術が現れています。<br />
-            これは他でもない、「誰もがクリエイターとなり、想い・情熱を形にできる革命」なのです。
-          </p>
-          <p>
-            とても自分の中で魅力的だと思うものができたけど、知らせる場所がない…<br />
-            Manusを使ったら何ができるのかわからない…
-          </p>
-          <p>
-            そんな悩みを解決し、誰もがクリエイターになれることを願ってこの場所を生み出しました。
-          </p>
-          <p>
-            我々は皆さんのアイデア・情熱を心から歓迎します。
-          </p>
-          <p className="text-foreground font-medium text-xl md:text-2xl pt-4">
-            是非とも、このManus Galleryを通じて、<br />
-            クリエイティブな人生を共に謳歌しましょう。
-          </p>
+        <div className="relative">
+          {/* Decorative Gradient Blur */}
+          <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-2xl opacity-50" />
+
+          <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl">
+            <div className="space-y-8 font-serif text-lg md:text-xl leading-relaxed text-muted-foreground">
+              <p>
+                近年、AIの力は凄まじい勢いで成長し、日々目まぐるしく新しい技術が現れています。<br />
+                これは他でもない、「誰もがクリエイターとなり、想い・情熱を形にできる革命」なのです。
+              </p>
+              <p>
+                とても自分の中で魅力的だと思うものができたけど、知らせる場所がない…<br />
+                Manusを使ったら何ができるのかわからない…
+              </p>
+              <p>
+                そんな悩みを解決し、誰もがクリエイターになれることを願ってこの場所を生み出しました。
+              </p>
+              <p>
+                我々は皆さんのアイデア・情熱を心から歓迎します。
+              </p>
+
+              <div className="pt-8">
+                <p className="text-foreground font-medium text-xl md:text-2xl mb-4">
+                  是非とも、このManus Galleryを通じて、
+                </p>
+                <p className="text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 drop-shadow-sm">
+                  クリエイティブな人生を共に謳歌しましょう。
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
