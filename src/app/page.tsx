@@ -52,113 +52,123 @@ export default function Home() {
   }, [projects, searchQuery, selectedCategory]);
 
   return (
-    <div className="min-h-screen pb-32">
-      <Header />
-
-      {/* Hero Section with Video Background */}
-      <section className="relative w-full h-[60vh] min-h-[500px] flex flex-col items-center justify-center text-center text-white overflow-hidden">
-        {/* Video Background */}
+    <div className="min-h-screen pb-32 relative bg-[#f8f8f8]">
+      {/* 1. Fixed Video Background (Visible for Hero -> About) */}
+      <div className="fixed inset-0 w-full h-full z-0 pointer-events-none">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
+          className="w-full h-full object-cover"
         >
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
+        {/* Dark Overlay for contrast */}
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
 
-        {/* Overlay with Fukujo-style subtle gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 z-10" />
+      {/* 2. Scrollable Content Wrapper */}
+      <div className="relative z-10 font-sans">
+        <Header />
 
-        {/* Content */}
-        <div className="relative z-20 px-6 max-w-4xl mx-auto">
-          <h2 className="text-5xl md:text-7xl font-serif font-black tracking-tight mb-6 animate-in fade-in slide-in-from-bottom-8 duration-1000 text-white drop-shadow-lg">
-            Manus Gallery
-          </h2>
-          <p className="font-serif text-lg md:text-2xl max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-150 text-neutral-100 drop-shadow-md leading-relaxed tracking-widest">
-            偶然と必然が交差する、<br className="md:hidden" />発想と情熱の美術館。
-          </p>
-        </div>
-      </section>
-
-      {/* Black Box Concept Section (New Request) */}
-      <section className="w-full bg-[#1a1a1a] text-white py-24 md:py-32 px-6 flex justify-center items-center relative overflow-hidden">
-        {/* Abstract Background Element */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-900/10 to-transparent opacity-50 pointer-events-none" />
-
-        <div className="max-w-4xl w-full text-center space-y-16 relative z-10 animate-in fade-in slide-in-from-bottom-8 duration-1000">
-          <h2 className="text-3xl md:text-5xl font-serif font-medium tracking-widest leading-relaxed">
-            『 アートを、もっと身近に 』
-          </h2>
-
-          <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/50 to-transparent mx-auto" />
-
-          <p className="font-serif text-lg md:text-2xl leading-loose tracking-wide text-neutral-300">
-            Manus Gallery は<br className="md:hidden" />「 誰でも・いつでも・無料で 」<br />
-            オンライン上でアートを楽しむことのできる<br />
-            唯一のオンライン美術館です。
-          </p>
-        </div>
-      </section>
-
-      {/* Refined About Section (Fukujo Style - Clean & Academic) */}
-      <section className="py-24 px-6 bg-[#f8f8f8] text-center relative overflow-hidden">
-        {/* Vertical Text Decoration */}
-        <div className="hidden lg:block absolute left-12 top-24 writing-vertical-rl text-neutral-200 font-serif tracking-[0.2em] text-7xl select-none pointer-events-none font-bold opacity-30">
-          MANUS GALLERY
-        </div>
-
-        <div className="max-w-3xl mx-auto relative z-10">
-          <div className="space-y-12 font-serif text-lg md:text-xl leading-loose text-neutral-700">
-            <p>
-              ご来訪いただきありがとうございます。<br />
-              近年、AIの力は凄まじい勢いで成長し、<br className="hidden md:inline" />日々目まぐるしく新しい技術が現れています。<br />
-              これは他でもない、<br />
-              <span className="text-black font-semibold">「誰もがクリエイターとなり、想い・情熱を形にできる革命」</span><br />
-              なのです。
+        {/* Hero Section (Transparent to show Video) */}
+        <section className="relative w-full h-[60vh] min-h-[500px] flex flex-col items-center justify-center text-center text-white overflow-hidden">
+          <div className="relative z-20 px-6 max-w-4xl mx-auto">
+            <h2 className="text-5xl md:text-7xl font-serif font-black tracking-tight mb-6 animate-in fade-in slide-in-from-bottom-8 duration-1000 text-white drop-shadow-lg">
+              Manus Gallery
+            </h2>
+            <p className="font-serif text-lg md:text-2xl max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-150 text-neutral-100 drop-shadow-md leading-relaxed tracking-widest">
+              偶然と必然が交差する、<br className="md:hidden" />発想と情熱の美術館。
             </p>
-            <p>
-              自分の中で魅力的だと思うものができたけど、知らせる場所がない…<br />
-              Manusを使ったら何ができるのかわからない…<br />
-              そんな悩みを解決し、<br className="hidden md:inline" />誰もがクリエイターになれることを願ってこの場所を生み出しました。
-            </p>
-            <p>
-              我々は皆さんのアイデア・情熱を心から歓迎します。
-            </p>
+          </div>
+        </section>
 
-            <div className="pt-12">
-              <p className="text-neutral-800 font-medium text-xl md:text-2xl mb-6 tracking-wide">
-                是非とも、このManus Galleryを通じて、
+        {/* Black Box Concept Section (Dark Glass to show Video) */}
+        <section className="w-full bg-black/60 text-white py-24 md:py-32 px-6 flex justify-center items-center relative overflow-hidden backdrop-blur-sm">
+          {/* Abstract Background Element */}
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-900/10 to-transparent opacity-50 pointer-events-none" />
+
+          <div className="max-w-4xl w-full text-center space-y-16 relative z-10 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+            <h2 className="text-3xl md:text-5xl font-serif font-medium tracking-widest leading-relaxed">
+              『 最先端を、もっと身近に 』
+            </h2>
+
+            <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/50 to-transparent mx-auto" />
+
+            <p className="font-serif text-lg md:text-2xl leading-loose tracking-wide text-neutral-200">
+              Manus Gallery は<br className="md:hidden" />「 誰でも・いつでも・無料で 」<br />
+              <br />
+              唯一のオンライン美術館です。
+            </p>
+          </div>
+        </section>
+
+        {/* Refined About Section (Dark Glass to show Video) */}
+        <section className="py-24 px-6 bg-black/40 text-center relative overflow-hidden backdrop-blur-md">
+          {/* Vertical Text Decoration */}
+          <div className="hidden lg:block absolute left-12 top-24 writing-vertical-rl text-white/10 font-serif tracking-[0.2em] text-7xl select-none pointer-events-none font-bold">
+            MANUS GALLERY
+          </div>
+
+          <div className="max-w-3xl mx-auto relative z-10">
+            <div className="space-y-12 font-serif text-lg md:text-xl leading-loose text-white/90">
+              <p>
+                ご来訪いただきありがとうございます。<br />
+                近年、AIの力は凄まじい勢いで成長し、<br className="hidden md:inline" />日々目まぐるしく新しい技術が現れています。<br />
+                これは他でもない、<br />
+                <span className="text-white font-bold border-b border-white/30 pb-1">「誰もがクリエイターとなり、想い・情熱を形にできる革命」</span><br />
+                なのです。
               </p>
-              <p className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-purple-700 to-black drop-shadow-sm pb-2 leading-tight">
-                クリエイティブな人生を謳歌しましょう。
+              <p>
+                自分の中で魅力的だと思うものができたけど、知らせる場所がない…<br />
+                Manusを使ったら何ができるのかわからない…<br />
               </p>
+              <p>
+                そんな悩みを解決し、<br className="hidden md:inline" />誰もがクリエイターになれることを願ってこの場所を生み出しました。
+              </p>
+              <p>
+                我々は皆さんのアイデア・情熱を心から歓迎します。
+              </p>
+
+              <div className="pt-12">
+                <p className="text-white font-medium text-xl md:text-2xl mb-6 tracking-wide">
+                  是非とも、このManus Galleryを通じて、
+                </p>
+                <p className="text-white font-bold text-xl md:text-3xl tracking-widest drop-shadow-lg">
+                  クリエイティブな人生を謳歌しましょう。
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Gallery Section */}
-      <main className="px-6 max-w-7xl mx-auto">
-        <GalleryControls
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-        />
-
-        {filteredProjects.length > 0 ? (
-          <GalleryGrid
-            projects={filteredProjects}
-            onSelectProject={setSelectedProject}
-          />
-        ) : (
-          <div className="text-center py-20 text-muted font-serif italic">
-            No projects found matching your criteria.
+        {/* Gallery Section (Solid BG to Hide Video) */}
+        <main className="px-6 py-20 max-w-7xl mx-auto bg-[#f8f8f8] relative z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.5)] rounded-t-3xl min-h-screen">
+          <div className="mb-12 text-center">
+            <h3 className="text-2xl font-serif text-neutral-800 tracking-widest mb-2">GALLERY</h3>
+            <div className="w-12 h-[1px] bg-neutral-300 mx-auto"></div>
           </div>
-        )}
-      </main>
+
+          <GalleryControls
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+          />
+
+          {filteredProjects.length > 0 ? (
+            <GalleryGrid
+              projects={filteredProjects}
+              onSelectProject={setSelectedProject}
+            />
+          ) : (
+            <div className="text-center py-20 text-muted font-serif italic">
+              No projects found matching your criteria.
+            </div>
+          )}
+        </main>
+      </div>
 
       {/* Project Details Modal */}
       {selectedProject && (
