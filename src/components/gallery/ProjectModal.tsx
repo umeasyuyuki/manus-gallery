@@ -42,16 +42,16 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
     }, [onClose]);
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm animate-in fade-in duration-300">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-300">
             <div
                 ref={modalRef}
-                className="relative w-full max-w-4xl bg-background border border-border shadow-2xl overflow-hidden flex flex-col md:flex-row animate-in zoom-in-95 slide-in-from-bottom-4 duration-300"
-                style={{ maxHeight: "90vh" }}
+                className="relative w-full max-w-6xl bg-background border border-border shadow-2xl overflow-hidden flex flex-col md:flex-row animate-in zoom-in-95 slide-in-from-bottom-4 duration-300 rounded-xl"
+                style={{ maxHeight: "90vh", height: "80vh" }}
             >
                 {/* Close Button */}
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 z-10 p-2 text-foreground/70 hover:text-foreground bg-black/20 hover:bg-black/40 backdrop-blur-md rounded-full transition-colors"
+                    className="absolute top-4 right-4 z-10 p-2 text-neutral-500 hover:text-black bg-white/50 hover:bg-white backdrop-blur-md rounded-full transition-colors"
                     aria-label="Close modal"
                 >
                     <svg
@@ -71,35 +71,35 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 </button>
 
                 {/* Left: Image (Scrollable on mobile if needed, but usually fixed) */}
-                <div className="w-full md:w-1/2 bg-black relative min-h-[300px] md:min-h-full flex items-center justify-center">
+                <div className="w-full md:w-3/5 bg-black relative min-h-[300px] md:min-h-full flex items-center justify-center p-4">
                     <Image
                         src={project.thumbnail_url}
                         alt={project.title}
                         fill
                         className="object-contain"
-                        sizes="(max-width: 768px) 100vw, 50vw"
+                        sizes="(max-width: 768px) 100vw, 60vw"
                     />
                 </div>
 
-                {/* Right: Content (Scrollable) */}
-                <div className="w-full md:w-1/2 flex flex-col p-6 md:p-10 overflow-y-auto">
+                {/* Right: Content (Scrollable) - White Background */}
+                <div className="w-full md:w-2/5 flex flex-col p-6 md:p-10 overflow-y-auto bg-white">
                     <div className="flex flex-col gap-6">
                         {/* Header Info */}
                         <div>
-                            <span className="inline-block px-3 py-1 text-xs font-sans uppercase tracking-wider bg-secondary/50 border border-border rounded-full mb-3">
+                            <span className="inline-block px-3 py-1 text-xs font-sans uppercase tracking-wider bg-neutral-100 text-neutral-600 border border-neutral-200 rounded-full mb-3">
                                 {project.category}
                             </span>
-                            <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground">
+                            <h2 className="text-3xl md:text-4xl font-serif font-bold text-neutral-900 leading-tight">
                                 {project.title}
                             </h2>
                         </div>
 
                         {/* Creator Info */}
-                        <div className="flex items-center gap-3 py-4 border-y border-border/50">
+                        <div className="flex items-center gap-3 py-4 border-y border-neutral-100">
                             <div className="text-sm">
-                                <p className="text-muted uppercase tracking-wide text-xs mb-1">Created by</p>
+                                <p className="text-neutral-400 uppercase tracking-wide text-xs mb-1">Created by</p>
                                 <div className="flex items-center gap-2">
-                                    <span className="font-medium text-foreground text-lg">
+                                    <span className="font-medium text-neutral-900 text-lg">
                                         {project.creator_name}
                                     </span>
                                     {project.creator_x_url && (
@@ -107,7 +107,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                                             href={project.creator_x_url}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="text-muted hover:text-[#1DA1F2] transition-colors"
+                                            className="text-neutral-400 hover:text-[#1DA1F2] transition-colors"
                                             aria-label={`${project.creator_name}'s X profile`}
                                         >
                                             <svg
@@ -121,27 +121,27 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                                     )}
                                 </div>
                                 {project.creator_x_id && (
-                                    <p className="text-xs text-muted">@{project.creator_x_id}</p>
+                                    <p className="text-xs text-neutral-500">@{project.creator_x_id}</p>
                                 )}
                             </div>
                         </div>
 
                         {/* Description */}
-                        <div className="prose prose-sm md:prose-base text-muted-foreground leading-relaxed">
+                        <div className="prose prose-sm md:prose-base text-neutral-600 leading-relaxed font-serif">
                             <p>{project.description}</p>
                         </div>
                     </div>
 
-                    {/* Action Button - Sticky at bottom of mobile view if needed, but handled by flex-col here */}
+                    {/* Action Button - Sticky at bottom of mobile view if needed. Force black button for contrast */}
                     <div className="mt-8 md:mt-auto pt-6">
                         {project.project_url && (
                             <Link
                                 href={project.project_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group w-full inline-flex items-center justify-center gap-2 px-8 py-3 bg-foreground text-background font-medium hover:bg-foreground/90 transition-colors duration-300"
+                                className="group w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-black text-white font-medium hover:bg-neutral-800 transition-all duration-300 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                             >
-                                <span>体験する</span>
+                                <span className="tracking-widest">体験する</span>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="16"
